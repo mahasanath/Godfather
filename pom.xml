@@ -14,6 +14,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<findbugs-maven-plugin.version>2.5.2</findbugs-maven-plugin.version>
 		<maven-pmd-plugin.version>2.7.1</maven-pmd-plugin.version>
+		 <maven-checkstyle-plugin.version>2.12.1</maven-checkstyle-plugin.version>
+
 	</properties>
 
 	<dependencies>
@@ -57,7 +59,7 @@
 			<plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
-        <version>2.9.1</version>
+        <version>2.12.1</version>
       </plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
@@ -68,16 +70,20 @@
 	</build>
 
 	<!-- To use the report goals in your POM or parent POM -->
-	
 	<reporting>
-        <plugins>
+		 <plugins>
+ 			<plugin>
+				 <groupId>org.codehaus.mojo</groupId>
+				 <artifactId>emma-maven-plugin</artifactId>
+				 <version>1.0-alpha-3</version>
+ 			</plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>2.10</version>
-                <configuration>
+                <version>2.12.1</version>
+                <!-- <configuration>
                     <configLocation>checkstyle.xml</configLocation>
-                </configuration>
+                </configuration> -->
             </plugin>
         </plugins>
     </reporting>
