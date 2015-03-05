@@ -3,7 +3,7 @@
 <description>
 The rulesets we want to use in pmd. For a detailed description of pmd rulesets: http://pmd.sourceforge.net/rules/index.html
 </description>
-<rule ref="rulesets/finalizers.xml/EmptyFinalizer"> <priority>5</priority></rule>
+<!-- <rule ref="rulesets/finalizers.xml/EmptyFinalizer"> <priority>5</priority></rule>
 <rule ref="rulesets/unusedcode.xml/UnusedPrivateMethod"> <priority>1</priority></rule>
 <rule ref="rulesets/basic.xml/BooleanInstantiation"> <priority>5</priority></rule>
 <rule ref="rulesets/basic.xml/CollapsibleIfStatements"> <priority>5</priority></rule>
@@ -22,7 +22,7 @@ The rulesets we want to use in pmd. For a detailed description of pmd rulesets: 
 <rule ref="rulesets/coupling.xml/ExcessiveImports"> <priority>5</priority></rule>
 <rule ref="rulesets/coupling.xml/LooseCoupling"> <priority>5</priority></rule>
 <rule ref="rulesets/basic.xml/EmptyFinallyBlock"> <priority>5</priority></rule>
-<rule ref="rulesets/unusedcode.xml/UnusedFormalParameter"> <priority>1</priority></rule>
+<rule ref="rulesets/unusedcode.xml/UnusedFormalParameter"> <priority>1</priority></rule> -->
 
 
 <rule name="InvalidImports" message="Do not use such imports" class="net.sourceforge.pmd.rules.XPathRule">
@@ -50,7 +50,7 @@ import java.net.URL; //is better
 <properties>
 <property name="xpath">
 <value>
-<![CDATA[/CatchStatement[not(descendant::ThrowStatement)]]]>
+<![CDATA[//CatchStatement[not(descendant::ThrowStatement)]]]>
 </value>
 </property>
 </properties>
@@ -63,6 +63,26 @@ catch(Exception e)
 catch (Exception e)
  {
 	throw new Exception("Exception in PMDCheck.pmdValidate"+e);		//is better
+}
+]]>
+</example>
+</rule>
+
+<rule name="PassportsNotAllowed" message="Do not pass passwords as a parameter in programs" class="net.sourceforge.pmd.rules.XPathRule">
+<description>
+If we see a PASSWORD we should flag
+</description>
+<properties>
+<property name="xpath">
+<value>
+<![CDATA[//VariableDeclaratorId[@Image='PASSWORD']]]>
+</value>
+</property>
+</properties>
+<priority>3</priority>
+<example>
+<![CDATA[ public class RuleTest {
+ String PASSWORD="****";
 }
 ]]>
 </example>
