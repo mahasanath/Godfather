@@ -18,12 +18,13 @@ The rulesets we want to use in pmd. For a detailed description of pmd rulesets: 
 <rule ref="rulesets/basic.xml/UnnecessaryReturn"> <priority>5</priority></rule>
 <rule ref="rulesets/basic.xml/UselessOverridingMethod"> <priority>5</priority></rule>
 <rule ref="rulesets/controversial.xml/NullAssignment"> <priority>5</priority></rule>
-<rule ref="rulesets/basic.xml/EmptyCatchBlock"> <priority>1</priority></rule>
 <rule ref="rulesets/coupling.xml/CouplingBetweenObjects"> <priority>5</priority></rule>
 <rule ref="rulesets/coupling.xml/ExcessiveImports"> <priority>5</priority></rule>
 <rule ref="rulesets/coupling.xml/LooseCoupling"> <priority>5</priority></rule>
 <rule ref="rulesets/basic.xml/EmptyFinallyBlock"> <priority>5</priority></rule>
 <rule ref="rulesets/unusedcode.xml/UnusedFormalParameter"> <priority>1</priority></rule>
+
+
 <rule name="InvalidImports" message="Do not use such imports" class="net.sourceforge.pmd.rules.XPathRule">
 <description>no usage of * in imports , not acceptable</description>
 <priority>1</priority>
