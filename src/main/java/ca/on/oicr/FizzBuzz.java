@@ -5,7 +5,10 @@ public class FizzBuzz {
 	public static final String FIZZ = "FIZZ";
 	public static final String BUZZ = "BUZZ";
 
-	public String decide(int i) {
+	public String decide(int i){
+		String s = null;
+		
+		
 		if (i == 3) {
 			return FIZZ;
 		}
@@ -19,6 +22,16 @@ public class FizzBuzz {
 			return FIZZ+BUZZ;
 		}
 		return "";
+	}
+	
+	public void pmdValidate() throws Exception {
+		String s = null;
+		try {
+			s="Welcome Sample PMD Custom rule";
+			System.out.println(s);
+		} catch (Exception e) {
+			//throw new Exception("Exception in PMDCheck.pmdValidate"+e);		
+		}
 	}
 
 }

@@ -51,11 +51,11 @@
 				<artifactId>findbugs-maven-plugin</artifactId>
 				<version>${findbugs-maven-plugin.version}</version>
 			</plugin>
-			<plugin>
+			<!-- <plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-pmd-plugin</artifactId>
 				<version>${maven-pmd-plugin.version}</version>
-			</plugin>
+			</plugin> -->
 			<plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
@@ -66,6 +66,47 @@
 				<artifactId>emma-maven-plugin</artifactId>
 				<version>1.0-alpha-3</version>
 			</plugin>
+			
+			<plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>findbugs-maven-plugin</artifactId>
+        <version>2.5.2</version>
+        <executions>
+          <execution>
+            <phase>verify</phase> 
+            <goals>
+              <goal>check</goal> 
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+			
+			<plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <version>2.7.1</version>
+        <executions>
+          <execution>
+            <phase>verify</phase> 
+            <goals>
+              <goal>check</goal> 
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <verbose>true</verbose>
+          <minimumTokens>100</minimumTokens>
+          <includeTests>true</includeTests>
+          <rulesets>
+		<ruleset>CustomRule.xml</ruleset>
+		</rulesets>
+         <!--  <rulesets>
+            <ruleset>http://ics-software-engineering.googlecode.com/svn/trunk/configfiles/pmd.rulesets.xml</ruleset>
+          </rulesets> -->
+          <targetJdk>1.6</targetJdk>
+        </configuration>
+        
+      </plugin>
 		</plugins>
 	</build>
 
@@ -85,6 +126,28 @@
                     <configLocation>checkstyle.xml</configLocation>
                 </configuration> -->
             </plugin>
+            <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jxr-plugin</artifactId>
+        <version>2.3</version>
+      </plugin>
+       <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>findbugs-maven-plugin</artifactId>
+        <version>2.3.3</version>
+        <configuration>
+          <xmlOutput>true</xmlOutput>
+          <!-- Optional directory to put findbugs xdoc xml report -->
+          <xmlOutputDirectory>target/site</xmlOutputDirectory>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <version>3.4</version>
+        <configuration>
+          <targetJdk>1.6</targetJdk>
+        </configuration>
+      </plugin>
         </plugins>
     </reporting>
 
