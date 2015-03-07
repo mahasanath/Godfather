@@ -6,7 +6,7 @@ public class FizzBuzz {
 	public static final String BUZZ = "BUZZ";
 
 	public String decide(int i){
-		String singh1234= null;
+		String singh123412= null;
 		
 			//String s = null;
 			 final String PASSWORD="secret";
