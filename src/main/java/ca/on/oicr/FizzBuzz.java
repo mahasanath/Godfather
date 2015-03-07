@@ -6,9 +6,9 @@ public class FizzBuzz {
 	public static final String BUZZ = "BUZZ";
 
 	public String decide(int i){
-		//String s = null;
+		String si = null;
 		
-			String s = null;
+			//String s = null;
 			 final String PASSWORD="secret";
 			 System.out.println(PASSWORD);
 		
